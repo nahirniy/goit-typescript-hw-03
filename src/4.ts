@@ -14,12 +14,9 @@
 
 abstract class House {
   protected door: boolean;
-  protected key: Key;
   protected tenants: Person[] = [];
 
-  constructor(key: Key) {
-    this.key = key;
-  }
+  constructor(protected key: Key) {}
 
   comeIn(person: Person) {
     if (this.door) {
@@ -34,6 +31,9 @@ class MyHouse extends House {
     if (key.getSignature() === this.key.getSignature()) {
       this.door = true;
       console.log("Open Door");
+    } else {
+      this.door = false;
+      console.log("Close Door");
     }
   }
 }
