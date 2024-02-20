@@ -13,7 +13,7 @@
 // Наприклад, ось так:
 
 abstract class House {
-  protected door: boolean;
+  protected door: boolean = false;
   protected tenants: Person[] = [];
 
   constructor(protected key: Key) {}
@@ -39,9 +39,9 @@ class MyHouse extends House {
 }
 
 class Key {
-  constructor(private signature = Math.random()) {}
+  private signature = Math.random();
 
-  getSignature() {
+  getSignature(): number {
     return this.signature;
   }
 }
